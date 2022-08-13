@@ -1,8 +1,5 @@
-package com.xworkz.resort.entity;
+package com.xworkz.restaurant.entity;
 
-import java.sql.Date;
-
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -13,41 +10,39 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 @Entity
 @AllArgsConstructor
 @Data
-@Table(name = "resort")
-public class ResortEntity {
-	
+@Table(name = "restaurant")
+public class RestaurantEntity {
+
 	@Id
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "location")
 	private String location;
-	
+
 	@Column(name = "checkInTime")
 	private LocalTime checkInTime;
-	
+
 	@Column(name = "checkOutTime")
 	private LocalTime checkOutTime;
-	
+
 	@Column(name = "createdBy")
 	private String createdBy;
-	
-	@Column(name ="createdDate")
+
+	@Column(name = "createdDate")
 	private LocalDate createdDate;
-	
+
 	@Column(name = "owner")
 	private String owner;
-	
-	@Column(name = "pricePerDay")
-	private Double pricePerDay;
-	
-	@Column(name ="updateDate")
+
+	@Column(name = "updateDate")
 	private LocalDate updateDate;
 
 	public int getId() {
@@ -78,8 +73,8 @@ public class ResortEntity {
 		return checkInTime;
 	}
 
-	public void setCheckInTime(LocalTime localTime) {
-		this.checkInTime = localTime;
+	public void setCheckInTime(LocalTime checkInTime) {
+		this.checkInTime = checkInTime;
 	}
 
 	public LocalTime getCheckOutTime() {
@@ -114,14 +109,6 @@ public class ResortEntity {
 		this.owner = owner;
 	}
 
-	public Double getPricePerDay() {
-		return pricePerDay;
-	}
-
-	public void setPricePerDay(Double pricePerDay) {
-		this.pricePerDay = pricePerDay;
-	}
-
 	public LocalDate getUpdateDate() {
 		return updateDate;
 	}
@@ -132,13 +119,13 @@ public class ResortEntity {
 
 	@Override
 	public String toString() {
-		return "ResortEntity [id=" + id + ", name=" + name + ", location=" + location + ", checkInTime=" + checkInTime
-				+ ", checkOutTime=" + checkOutTime + ", createdBy=" + createdBy + ", createdDate=" + createdDate
-				+ ", owner=" + owner + ", pricePerDay=" + pricePerDay + ", updateDate=" + updateDate + "]";
+		return "RestaurantEntity [id=" + id + ", name=" + name + ", location=" + location + ", checkInTime="
+				+ checkInTime + ", checkOutTime=" + checkOutTime + ", createdBy=" + createdBy + ", createdDate="
+				+ createdDate + ", owner=" + owner + ", updateDate=" + updateDate + "]";
 	}
 
-	public ResortEntity(int id, String name, String location, LocalTime checkInTime, LocalTime checkOutTime, String createdBy,
-			LocalDate createdDate, String owner, Double pricePerDay, LocalDate updateDate) {
+	public RestaurantEntity(int id, String name, String location, LocalTime checkInTime, LocalTime checkOutTime,
+			String createdBy, LocalDate createdDate, String owner, LocalDate updateDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -148,15 +135,12 @@ public class ResortEntity {
 		this.createdBy = createdBy;
 		this.createdDate = createdDate;
 		this.owner = owner;
-		this.pricePerDay = pricePerDay;
 		this.updateDate = updateDate;
 	}
 
-	public ResortEntity() {
+	public RestaurantEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 }

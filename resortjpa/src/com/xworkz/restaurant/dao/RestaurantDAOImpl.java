@@ -1,4 +1,4 @@
-package com.xworkz.resort.dao;
+package com.xworkz.restaurant.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -6,14 +6,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
-import com.xworkz.resort.entity.ResortEntity;
+import com.xworkz.restaurant.entity.RestaurantEntity;
 
-public class ResortDAOImpl implements ResortDAO {
+public class RestaurantDAOImpl implements RestaurantDAO {
 
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
 
 	@Override
-	public boolean save(ResortEntity entity) {
+	public boolean save(RestaurantEntity entity) {
 		try {
 			EntityManager manager = factory.createEntityManager();
 			EntityTransaction tx = manager.getTransaction();
@@ -27,10 +27,11 @@ public class ResortDAOImpl implements ResortDAO {
 
 		}
 		return false;
+
 	}
 
 	@Override
-	public ResortEntity findById(int pk) {
+	public RestaurantEntity findById(int pk) {
 		System.out.println("running findById" + pk);
 		// look for .xml --> parsing --> impl of EMF
 		// EMF --> establish ---> connection pool
@@ -38,7 +39,7 @@ public class ResortDAOImpl implements ResortDAO {
 		try {
 			entityManager = factory.createEntityManager();
 			// create an impl of EM --> assoc a conn from CP
-			ResortEntity entity = entityManager.find(ResortEntity.class, pk);
+			RestaurantEntity entity = entityManager.find(RestaurantEntity.class, pk);
 			if (entity != null) {
 				System.out.println("resort entity is found for id" + pk);
 				return entity;
@@ -61,7 +62,7 @@ public class ResortDAOImpl implements ResortDAO {
 		try {
 			EntityTransaction tx = entityManager.getTransaction();
 			tx.begin();
-			ResortEntity entity = entityManager.find(ResortEntity.class, id);
+			RestaurantEntity entity = entityManager.find(RestaurantEntity.class, id);
 			if (entity != null) {
 				System.out.println("entity found for id" + id + " can update");
 				entity.setOwner(newOwner);
